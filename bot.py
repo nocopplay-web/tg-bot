@@ -1,12 +1,16 @@
 from os import getenv
 import asyncio
 from os import *
+<<<<<<< HEAD
 import sqlite3
 
 
 from datetime import datetime
 from aiogram.client.session.aiohttp import AiohttpSession
 from datetime import date
+=======
+
+>>>>>>> d20088d39d5739a2aba763751cb53041b0e4f6c7
 from aiogram import Router, Bot, Dispatcher, html
 from aiogram.filters import Command
 from aiogram.types import Message
@@ -17,6 +21,7 @@ load_dotenv()
 
 token = getenv("BOT_TOKEN")
 
+<<<<<<< HEAD
 def create_deals_table():
     con = sqlite3.connect("deals.db")
     cursor = con.cursor()
@@ -35,6 +40,8 @@ def create_deals_table():
     con.close()
 
 
+=======
+>>>>>>> d20088d39d5739a2aba763751cb53041b0e4f6c7
 if not token:
     raise ValueError("BOT_TOKEN не найден в файле .env. Пожалуйста, создайте файл .env и добавьте туда BOT_TOKEN=ваш_токен")
 
@@ -48,7 +55,11 @@ async def start(message: Message):
         await message.answer(
         "Я бот для записи подсчётов!\n\n"
         "Меня создал <b>@sintik_vb</b>\n\n"
+<<<<<<< HEAD
         "Нужен бот пишите <a href='https://kwork.ru/user/nocopplay-dev'>сюда</a>\n",
+=======
+        "Нужен бот пишите <a href='https://kwork.ru/user/nocopplay-dev'>сюда</a>",
+>>>>>>> d20088d39d5739a2aba763751cb53041b0e4f6c7
         parse_mode="HTML")
     
 @rou.message(Command("help"))
@@ -56,6 +67,7 @@ async def help(message: Message):
      await message.answer(
         "Вот что я умею:\n\n"
         "/start - запустить меня\n"
+<<<<<<< HEAD
         "/buy - добавить покупку\n"
         "/sell - добавить продажу\n"
         "/history - история сделок\n"
@@ -248,3 +260,15 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
     
+=======
+        "/add - добавить данные\n"
+        "/check - посмотреть данные\n"
+        "/checkdata - за определенный момент времени")
+    
+async def main():
+    bot = Bot(token=token)
+    await dp.start_polling(bot)
+    
+if __name__ == "__main__":
+    asyncio.run(main())
+>>>>>>> d20088d39d5739a2aba763751cb53041b0e4f6c7
